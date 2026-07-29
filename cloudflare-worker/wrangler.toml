@@ -1,0 +1,9 @@
+name = "ilink-tempmail-email-worker"
+main = "src/index.ts"
+compatibility_date = "2026-07-20"
+
+[vars]
+SUPABASE_URL = "https://PROJECT_ID.supabase.co"
+
+# Simpan SUPABASE_SERVICE_ROLE_KEY sebagai secret:
+# npx wrangler secret put SUPABASE_SERVICE_ROLE_KEY
