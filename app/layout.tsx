@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-const appName = process.env.NEXT_PUBLIC_APP_NAME || "iLink TempMail";
+const appName = process.env.NEXT_PUBLIC_APP_NAME || "TemPmail";
 
 export const metadata: Metadata = {
   title: `${appName} — Email Sementara Cepat & Privat`,

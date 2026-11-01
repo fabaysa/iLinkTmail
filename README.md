@@ -95,3 +95,26 @@ Buka `http://localhost:3000`.
 - Batasi ukuran email dan jangan mengizinkan attachment pada versi awal.
 - HTML email telah disanitasi dan gambar eksternal diblokir untuk mengurangi tracking.
 - Gunakan layanan hanya untuk aktivitas yang sah; jangan dipakai untuk spam, penipuan, atau melewati pembatasan layanan.
+
+## Desain antarmuka
+
+UI mengikuti desain FigCraft TemPmail: palet monokrom, tipografi editorial,
+ilustrasi amplop SVG lokal, serta layout responsif untuk beranda dan inbox.
+Komponen tampilan bersama berada di `components/mail-shell.tsx` dan token
+warna berada di `app/globals.css`. Tidak ada font atau gambar eksternal.
+
+Beranda tetap menyediakan nama custom/acak, domain, dan masa aktif. Halaman
+inbox menyediakan salin alamat, hapus inbox, refresh manual/otomatis 8 detik,
+serta pembaca HTML sandbox dan teks aman. Link Cara kerja dan FAQ mengarah
+ke panduan yang dapat dibuka di beranda.
+
+Validasi lokal:
+
+```bash
+npm ci
+npm run typecheck
+npm run build
+```
+
+Jika Turbopack mengalami kegagalan junction di Windows/OneDrive, gunakan
+`npm run build -- --webpack` untuk memverifikasi build produksi.
