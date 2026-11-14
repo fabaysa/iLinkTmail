@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getMailDomains } from "@/lib/env";
+import { listAvailableDomains } from "@/lib/domains";
 import { consumeCreateLimit } from "@/lib/rate-limit";
 import { generateAccessToken, hashToken, normalizeLocalPart, randomLocalPart } from "@/lib/security";
 import { supabaseRest } from "@/lib/supabase-rest";
@@ -34,7 +34,7 @@ export async function POST(request: Request) {
     const isRandom = !rawLocalPart;
     const domain = String(body.domain || "").trim().toLowerCase();
     const ttlMinutes = Number(body.ttlMinutes);
-    const domains = getMailDomains();
+    const domains = await listAvailableDomains();
     if (!domains.includes(domain)) return NextResponse.json({ error: "Domain email tidak tersedia." }, { status: 400 });
     if (!ALLOWED_TTLS.has(ttlMinutes)) return NextResponse.json({ error: "Masa aktif tidak valid." }, { status: 400 });
 

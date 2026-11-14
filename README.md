@@ -28,7 +28,7 @@ Website Temporary Mail Generator siap deploy menggunakan **Next.js + Vercel + Su
 
 1. Buat project Supabase baru.
 2. Buka **SQL Editor**.
-3. Jalankan seluruh isi `supabase/migrations/001_initial.sql`.
+3. Jalankan seluruh isi `supabase/migrations/001_initial.sql`, lalu jalankan juga `supabase/migrations/002_domains.sql` (untuk fitur tambah domain dari antarmuka web).
 4. Buka **Project Settings → API** dan simpan:
    - Project URL
    - Service Role Key (jangan pernah dipasang di browser)
@@ -50,7 +50,7 @@ npm run deploy
 ```
 
 6. Pada Email Routing, buat aturan **Catch-all → Send to a Worker**, lalu pilih worker `ilink-tempmail-email-worker`.
-7. Pastikan domain yang ditulis pada `NEXT_PUBLIC_MAIL_DOMAINS` sama dengan domain/subdomain penerima email.
+7. Pastikan domain yang ditulis pada `NEXT_PUBLIC_MAIL_DOMAINS` (atau ditambahkan via tombol **+ Tambah domain** di web) sudah aktif Email Routing-nya menuju worker tersebut.
 
 ## 3. Deploy website ke Vercel
 

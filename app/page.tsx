@@ -1,10 +1,11 @@
 import { MailApp } from "@/components/mail-app";
+import { listAvailableDomains } from "@/lib/domains";
 
-export default function HomePage() {
-  const domains = (process.env.NEXT_PUBLIC_MAIL_DOMAINS || "mail.domainanda.com")
-    .split(",")
-    .map((domain) => domain.trim().toLowerCase())
-    .filter(Boolean);
+export const dynamic = "force-dynamic";
+
+export default async function HomePage() {
+  const configuredDomains = await listAvailableDomains().catch(() => []);
+  const domains = configuredDomains.length ? configuredDomains : ["mail.domainanda.com"];
 
   return <MailApp domains={domains} />;
 }
