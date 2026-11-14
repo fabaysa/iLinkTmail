@@ -1,4 +1,5 @@
 import { createHash, randomBytes } from "node:crypto";
+import { generatePersonUsername } from "./username-generator";
 
 export function generateAccessToken() {
   return randomBytes(32).toString("base64url");
@@ -9,10 +10,7 @@ export function hashToken(token: string) {
 }
 
 export function randomLocalPart() {
-  const adjectives = ["swift", "bright", "nova", "pixel", "cloud", "lunar", "quick", "mint"];
-  const nouns = ["mail", "box", "link", "wave", "bird", "star", "note", "drop"];
-  const number = Math.floor(1000 + Math.random() * 9000);
-  return `${adjectives[Math.floor(Math.random() * adjectives.length)]}.${nouns[Math.floor(Math.random() * nouns.length)]}${number}`;
+  return generatePersonUsername();
 }
 
 export function normalizeLocalPart(value: unknown) {
