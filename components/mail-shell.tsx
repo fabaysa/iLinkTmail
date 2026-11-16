@@ -9,7 +9,7 @@ export function MailIllustration() {
 }
 
 export function Hero() {
-  return <section className="hero" aria-labelledby="hero-title"><div className="hero-copy"><p className="eyebrow">Email sementara. Tanpa jejak panjang.</p><h1 id="hero-title">Email singgah.<br />Privasi menetap.</h1><p className="hero-description">Untuk daftar, coba, lalu tinggalkan.<br />Simpan email pribadi untuk hal yang berarti.</p><p className="hero-facts">Tanpa akun <span>·</span> Gratis digunakan</p></div><MailIllustration /></section>;
+  return <section className="hero" aria-labelledby="hero-title"><div className="hero-copy"><p className="eyebrow">Email sementara. Tanpa jejak panjang.</p><h1 id="hero-title">Email singgah.<br />Privasi menetap.</h1><p className="hero-description">Untuk daftar, coba, lalu tinggalkan. <br />Simpan email pribadi untuk hal yang berarti.</p><p className="hero-facts">Tanpa akun <span>·</span> Gratis digunakan</p></div><MailIllustration /></section>;
 }
 
 export function PrivacyNote() {
